@@ -1,22 +1,32 @@
+<?php 
+    session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="index.php" method = "POST">
+        <p>username: </p><br>
+        <input type="text" name = "username"><br>
+        <p>password: </p><br>
+        <input type="password" name = "password"><br>   
+        <input type="submit" value = "Login" name = "login">  <br>
+    </form>
+</body>
+</html>
+
 <?php
-    $name = array('abebe', 'zeleke', 'nahom', 'israel');
-    array_push($name, "alemitu", "tina");
-    array_pop($name);
-    foreach($name as $food){
-        echo $food . "<br>";
-    };
-
-    $comp = array(
-        "ZEMS" => "3emp",
-        "APL" => "45emp",
-        "ERT" => "32emp"
-    );
-    echo $comp["ERT"] . "<br>";
-
-    $comp["ZEMS"] = "2133";
-    array_pop($comp);
-
-    foreach($comp as $key => $value){
-        echo $key . "=>" . $value . "<br>";
+    if(isset($_POST["login"])){
+        if(!empty($_POST["username"]) && !empty($_POST["password"])){
+            $_SESSION["username"] = $_POST["username"];
+            $_SESSION["password"] = $_POST["password"];
+            header("Location: home.php");
+        } else{
+            echo "pls make sure to enter both fields";
+        }
     }
 ?>
