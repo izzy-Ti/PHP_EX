@@ -17,16 +17,17 @@
         $y = $_POST["y"];
         $x = $_POST["x"];
         $number = null;
+        $number = abs($x);
+        $number = floor($x);
+        $number = round($x);
+        $number = ceil($x);
+        $number = pow($x, $y);
+        $number = max($x, $y);
+        $number = min($x, $y);
+        $number = pi();
+        $number = rand(1, 20);
+        echo $number  
 
-        //$number = abs($x);
-        //$number = floor($x);
-        //$number = round($x);
-        //$number = ceil($x);
-        //$number = pow($x, $y);
-        //$number = max($x, $y);
-        //$number = min($x, $y);
-        //$number = pi();
-        echo $number
     ?>
 </body>
 </html>
